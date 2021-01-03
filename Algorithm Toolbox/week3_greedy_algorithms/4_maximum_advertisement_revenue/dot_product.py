@@ -4,6 +4,10 @@ import sys
 
 def max_dot_product(a, b):
     #write your code here
+    # a = [a for b,a in sorted(zip(b,a),reverse=True)]
+    # b = [b for b,a in sorted(zip(b,a),reverse=True)]
+    a.sort(reverse = True)
+    b.sort(reverse=True)
     res = 0
     for i in range(len(a)):
         res += a[i] * b[i]
@@ -11,6 +15,7 @@ def max_dot_product(a, b):
 
 if __name__ == '__main__':
     input = sys.stdin.read()
+    # input = input()
     data = list(map(int, input.split()))
     n = data[0]
     a = data[1:(n + 1)]
