@@ -2,8 +2,28 @@
 import sys
 
 def binary_search(a, x):
-    left, right = 0, len(a)
+    left, right = 0, len(a) - 1 
     # write your code here
+    while left <= right : 
+  
+        mid = (left + right) // 2
+        
+        # Check if x is present at mid 
+        
+        if a[mid] < x: 
+            left = mid + 1
+
+        # If x is greater, ignore left half 
+        elif a[mid] > x: 
+            right = mid - 1
+  
+        # If x is smaller, ignore right half 
+        else: 
+            return mid 
+  
+    # If we reach here, then the element was not present 
+    return -1
+
 
 def linear_search(a, x):
     for i in range(len(a)):
@@ -13,10 +33,13 @@ def linear_search(a, x):
 
 if __name__ == '__main__':
     input = sys.stdin.read()
+    # input = input()
     data = list(map(int, input.split()))
     n = data[0]
     m = data[n + 1]
     a = data[1 : n + 1]
     for x in data[n + 2:]:
         # replace with the call to binary_search when implemented
-        print(linear_search(a, x), end = ' ')
+        # print(linear_search(a, x), end = ' ')
+        print(binary_search(a, x), end = ' ')
+
